@@ -22,7 +22,18 @@ public class Stack02 {
         this.arr[top++] = value;
     }
 
+//    public int pop() {
+//        return this.arr[--this.top];
+//    }
     public int pop() {
+        if (this.isEmpty()) {
+            throw new RuntimeException("스택이 비었습니다.");
+        }
         return this.arr[--this.top];
+    }
+
+    public boolean isEmpty() {
+        boolean isEmpty = this.top == 0;
+        return isEmpty;
     }
 }
