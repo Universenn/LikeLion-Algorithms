@@ -23,6 +23,6 @@ public class Stack02 {
     }
 
     public int pop() {
-        return this.arr[--this.top-1];
+        return this.arr[--this.top];
     }
 }
