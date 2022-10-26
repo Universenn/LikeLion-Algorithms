@@ -1,19 +1,22 @@
 package week4.day1025;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HashTable {
 
     private int size = 10000;
-    private int[] table = new int[size];
+
+//    private int[] table = new int[size];
+//    List 로 변환
+    private List<Node>[] table = new ArrayList[size];
 
     public HashTable() {
     }
 
     public HashTable(int size) {
         this.size = size;
-        this.table = new int[size];
+        this.table = new ArrayList[size];
     }
 
     public int hash(String key) {
@@ -23,37 +26,37 @@ public class HashTable {
         }
         return asciiSum % size;
     }
-    public void insert(String key, Integer value){
+    public void insert(String key, int value){
         int hashcode = hash(key);
-        this.table[hashcode] = value;
-        System.out.println(key+" "+hashcode + " 방에 저장이 완료 되었습니다.");
+        if (this.table[hashcode] == null) {
+            this.table[hashcode] = new ArrayList<>();
+        }
+        this.table[hashcode].add(new Node(key, value));
+
     }
 
-    public int search(String key){
-        return this.table[hash(key)];
+//    public int search(String key){
+//        return this.table[hash(key)];
+//    }
+
+    public Integer get(String key){
+        List<Node> nodes = this.table[hash(key)];
+        for (Node node : nodes) {
+            if (key.equals(node.getKey())){
+                return node.getValue();
+            }
+        }
+        return null;
     }
 
     public static void main(String[] args) {
-        String[] names = new String[]{"DongyeonKang",
-                "SubinKang", "KwanwunKo", "HyunseokKo", "KyoungdukKoo", "YeonjiGu", "SoyeonKown", "OhsukKwon", "GunwooKim", "KiheonKim", "NayeongKim", "DohyeonKim",
-                "MinkyoungKim", "MinjiKim", "SanghoKim", "SolbaeKim", "YejinKim", "EungjunKim", "JaegeunKim", "JeonghyeonKim", "JunhoKim", "JisuKim", "kimjinah", "HaneulKim",
-                "HeejungKim", "KimoonPark", "EunbinPark", "JeongHoonPark", "JeminPark", "TaegeunPark", "JiwonBae", "SeunggeunBaek", "JihwanByeon", "HeungseopByeon", "JeongHeeSeo",
-                "TaegeonSeo", "SeeYunSeok", "SuyeonSeong", "SeyoelSon", "MinjiSong", "JinwooSong", "hyunboSim", "SominAhn", "JiyoungAhn", "ChangbumAn", "SoonminEom",
-                "HyeongsangOh", "SuinWoo", "JuwanWoo", "InkyuYoon", "GahyunLee", "DaonLee", "DohyunLee", "SanghunLee", "SujinLee", "AjinLee", "YeonJae", "HyeonjuLee", "HakjunYim", "SeoyunJang", "SeohyeonJang", "JinseonJang", "SujinJeon", "SeunghwanJeon", "DaehwanJung", "JaeHyunJeung", "HeejunJeong", "GukhyeonCho", "MunjuJo", "YejiJo", "ChanminJu", "MinjunChoi", "SujeongChoi", "SeunghoChoi", "AyeongChoi", "GeonjooHan", "JinhyuckHeo", "MinwooHwang", "SieunHwang",
-                "JunhaHwang"};
-        HashTable ht = new HashTable(200);
-//        Set<Integer> nameSet = new HashSet<>();
-//        for (int i = 0; i < names.length; i++) {
-//            nameSet.add(ht.hash(names[i]));
-//        }
-//        System.out.printf("%s %s", names.length, nameSet.size());
-
-//        HashTable ht2 = new HashTable(200);
-        for (int i = 0; i < names.length; i++) {
-            ht.insert(names[i], ht.hash(names[i]));
-        }
-        System.out.println(ht.search("DongyeonKang"));
-        System.out.println(ht.search("JiyoungAhn"));
+        HashTable ht2 = new HashTable(200);
+        ht2.insert("Yonnseo", 1);
+        ht2.insert("Seoyoon", 2);
+        int result = ht2.get("Yonnseo");
+        if (result == 1 ){
+            System.out.println("테스트 성공");
+        }else System.out.printf("테스트 실패 value : %d", result);
     }
 
 }
