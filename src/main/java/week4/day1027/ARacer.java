@@ -27,7 +27,7 @@ public class ARacer {
         }
         for (int i = 0; i < completion.length; i++) {
             String key = completion[i];  // value 1
-            memo.put(key,0);
+//            memo.put(key,0);
             // 하나를 빼준다.
             memo.put(key,memo.get(key)-1);
         }
@@ -42,8 +42,8 @@ public class ARacer {
     }
 
     public static void main(String[] args) {
-        String[] participant = {"marina", "josipa", "nikola", "vinko", "filipa"};
-        String[] completion = {"josipa", "filipa", "marina", "nikola"};
+        String[] participant = {"mislav", "stanko", "mislav", "ana"};
+        String[] completion = {"stanko", "ana", "mislav"};
         ARacer aRacer = new ARacer();
         String answer = aRacer.solution(participant, completion);
         System.out.println(answer);
