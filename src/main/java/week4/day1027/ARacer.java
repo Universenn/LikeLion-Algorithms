@@ -18,11 +18,18 @@ public class ARacer {
         HashMap<String, Integer> memo  = new HashMap<>();
         for (int i = 0; i < participant.length; i++) {
             String key = participant[i];
-            memo.put(key,1);
+            // null 포인트가 나오기 때문에 바로 put을 할 수가 없다.
+            // key값이 null 이면 0dmf 넣어준다.?
+            if (!memo.containsKey(key)){
+                memo.put(key,0);
+            }
+            memo.put(key,memo.get(key) + 1);
         }
         for (int i = 0; i < completion.length; i++) {
             String key = completion[i];  // value 1
             memo.put(key,0);
+            // 하나를 빼준다.
+            memo.put(key,memo.get(key)-1);
         }
         for (String key : memo.keySet()) {
             if (memo.get(key) == 1){
@@ -32,5 +39,13 @@ public class ARacer {
         }
 
         return answer;
+    }
+
+    public static void main(String[] args) {
+        String[] participant = {"marina", "josipa", "nikola", "vinko", "filipa"};
+        String[] completion = {"josipa", "filipa", "marina", "nikola"};
+        ARacer aRacer = new ARacer();
+        String answer = aRacer.solution(participant, completion);
+        System.out.println(answer);
     }
 }
