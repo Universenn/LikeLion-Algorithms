@@ -16,9 +16,14 @@ public class ProgrammersPokemon {
         int answer = 0;
 
         Set<Integer> set = new HashSet<>();
-        for (int i = 0; i < nums.length; i++) {
-            set.add(nums[i]);
+//        for (int i = 0; i < nums.length; i++) {
+//            set.add(nums[i]);
+//        }
+
+        for (int num : nums) {
+            set.add(num);
         }
+
         int N = nums.length/2;  // 2
 
         if (N < set.size()){  // 2 < 3
