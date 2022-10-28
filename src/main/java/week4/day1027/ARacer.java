@@ -9,10 +9,6 @@ public class ARacer {
     //
     //Participant에 1명이 남습니다.
     //그러면 그 1명을 return
-
-
-    private int size = 100000;
-
     public String solution(String[] participant, String[] completion) {
         String answer = "";
         HashMap<String, Integer> memo  = new HashMap<>();
