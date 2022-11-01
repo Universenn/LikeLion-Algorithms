@@ -1,12 +1,13 @@
 package week5.day1101.programmers;
 
-public class TemplateCallbackPrime {
-    boolean someOperation(int a, int b) {
-        return a < b;
-    }
-    boolean isPrime(int num) {
+interface StatementStrategy{
+    boolean compare(int a, int b);
+}
 
-        for (int i = 2; someOperation(i,num); i++) {
+public class TemplateCallbackPrime {
+    boolean isPrime(int num, StatementStrategy stmt) {
+
+        for (int i = 2; stmt.compare(i,num); i++) {
             if (num % i == 0) {
                 return false;
             }
