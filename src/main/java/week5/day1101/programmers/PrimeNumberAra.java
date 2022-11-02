@@ -11,8 +11,8 @@ public class PrimeNumberAra {
 
         ArrayList<Integer> arr = new ArrayList<>();
 
-        for (int i = 2; i < 50; i++) {
-            if (i % 2 != 0) {
+        for (int i = 2; i <= 50; i++) {
+            if (i % 2 != 0 || i == 2) {
                 arr.add(i);
             }
         }
