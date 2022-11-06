@@ -1,6 +1,8 @@
 package week5.day1103;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class PrimeNumber1 {
 //        실습1
@@ -29,6 +31,32 @@ public class PrimeNumber1 {
     public static void main(String[] args) {
         PrimeNumber1 pr1 = new PrimeNumber1();
         System.out.println(pr1.solution(98));
+
+        int N = 50;
+
+        int[] nums = new int[N-1];
+
+        boolean[] checks = new boolean[nums.length];
+
+        Arrays.fill(checks, true);
+
+        for (int i = 0; i < nums.length; i++) nums[i] = i + 2;
+        System.out.println(Arrays.toString(nums));
+
+        int maltipleOf = 2;
+
+        for (int i = 2; i < nums.length; i+=maltipleOf) {
+            checks[i] = false;
+        }
+        List<Integer> primes = new ArrayList<>();
+
+        for (int i = 0; i < checks.length; i++) {
+            if (checks[i]) {
+                primes.add(nums[i]);
+            }
+        }
+        System.out.println(primes);
+
     }
 
 
