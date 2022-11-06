@@ -6,13 +6,21 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int x = sc.nextInt();
-        int y = sc.nextInt();
+        String grade;
 
-        if (x>y) {
-            System.out.println(">");
-        } else if (x<y) {
-            System.out.println("<");
-        }else System.out.println("==");
+        switch (x/10) {
+            case 10 :
+            case 9 : grade = "A";
+                break;
+            case 8 : grade = "B";
+                break;
+            case 7 : grade = "c";
+                break;
+            case 6 : grade = "D";
+                break;
+            default: grade = "F";
+        }
+        System.out.println(grade);
 
     }
 }
