@@ -6,9 +6,13 @@ import java.util.List;
 
 public class Programmers12910 {
     public int[] solution(int[] arr, int divisor) {
+        // 오름차순 정렬
         Arrays.sort(arr);
+
+        // List 생성
         List<Integer> list = new ArrayList<>();
 
+        // arr 배열중 divisor 로 나누어 떨어지는 수 add
         for (int i : arr) {
             if (i%divisor==0){
                 list.add(i);
