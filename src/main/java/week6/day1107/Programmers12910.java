@@ -5,32 +5,41 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Programmers12910 {
-
-    public static void main(String[] args) {
-        int[] arr = {5, 9, 7, 10};
-        int divisor = 5;
-        List<Integer> a1 = new ArrayList<>();
+    public int[] solution(int[] arr, int divisor) {
+        Arrays.sort(arr);
+        List<Integer> list = new ArrayList<>();
 
         for (int i : arr) {
             if (i%divisor==0){
-                a1.add(i);
+                list.add(i);
             }
         }
-        System.out.println(a1);
+        System.out.println(list);
 
+        // 값이 없다면 -1 추가
+        if (list.size() == 0) return new int[]{-1};
 
+        // List Array 로 바꾸기
+        int[] result = new int[list.size()];
+
+        for (int i = 0; i < list.size(); i++) {
+          result[i] = list.get(i);
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] arr1 = {5, 9, 7, 10};
         int[] arr2 = {2, 36, 1, 3};
-        Arrays.sort(arr2);
-
-        List<Integer> a2 = new ArrayList<>();
+        int[] arr3 = {3, 2, 6};
+        int divisor1 = 5;
         int divisor2 = 1;
+        int divisor3 = 10;
+        Programmers12910 pg = new Programmers12910();
+        pg.solution(arr1, divisor1);
+        pg.solution(arr2, divisor2);
+        pg.solution(arr3, divisor3);
 
-        for (int i : arr2) {
-            if (i%divisor2==0){
-                a2.add(i);
-            }
-        }
-
-        System.out.println(a2);
     }
 }
