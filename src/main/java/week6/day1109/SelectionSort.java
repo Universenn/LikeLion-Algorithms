@@ -7,29 +7,20 @@ public class SelectionSort {
     public static void main(String[] args) {
         int[] arr = {2, 7, 4, 9, 10, 223, 111, 23, 3, 39};
         int minIdx = 0;
+        int temp = 0;
+
 
         for (int i = 0; i < arr.length; i++) {
-            if (arr[minIdx] > arr[i]) minIdx = i;
+            minIdx = i;
+            for (int j = i; j < arr.length; j++) {
+                if (arr[minIdx] > arr[j]) minIdx = j;
+            }
+            temp = arr[i];
+            arr[i] = arr[minIdx];
+            arr[minIdx] = temp;
+
+            System.out.println(Arrays.toString(arr));
         }
-
-        int tmp = 0;
-        tmp = arr[0];
-        arr[0] = arr[minIdx];
-        arr[minIdx]  = arr[0];
-
-        System.out.println(Arrays.toString(arr));
-
-
-        minIdx = 1;
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[minIdx] > arr[i]) minIdx = i;
-        }
-
-        tmp = arr[1];
-        arr[1] = arr[minIdx];
-        arr[minIdx]  = arr[1];
-
-        System.out.println(Arrays.toString(arr));
 
     }
 
