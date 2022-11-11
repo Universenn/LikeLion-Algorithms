@@ -22,6 +22,17 @@ public class num92 {
 
         return answer;
     }
+    public String[] solution2(int n, int[] arr1, int[] arr2) {
+        var answer = new String[n];
+        for (int i = 0; i < n; i++) {
+            answer[i] = Integer.toBinaryString(arr1[i] | arr2[i])
+                    .replace("1","#").replace("0", " ");
+            // 자릿수 맞춰주는 연산
+            answer[i] = " ".repeat(n - answer[i].length()) + answer[i];
+        }
+        System.out.println(Arrays.toString(answer));
+        return answer;
+    }
 
     public String getBinaryString(int decNum) {
         String answer = "";
@@ -41,6 +52,7 @@ public class num92 {
 
         num92 n92 = new num92();
         n92.solution(n, arr1, arr2);
+        n92.solution2(n, arr1, arr2);
 
 
 
