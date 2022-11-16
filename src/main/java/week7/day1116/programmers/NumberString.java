@@ -3,12 +3,13 @@ package week7.day1116.programmers;
 import java.util.Arrays;
 
 public class NumberString {
-    public int solution(String m) {
-        String[] numArr = {"zero", "one", "two", "three", "four", "five", "six", "seven","eight", "nine"};
-        for (int i = 0; i < m.length(); i++) {
-            m = m.replace(numArr[i],String.valueOf(i));
+    public int solution(String s) {
+        String[] NumberS = {"zero", "one", "six", "two", "four", "five", "seven", "three", "eight", "nine"};
+        String[] NumberI = {"0", "1", "6", "2", "4", "5", "7", "3", "8", "9"};
+        for (int i = 0; i < NumberI.length; i++) {
+            s = s.replace(NumberS[i], NumberI[i]);
         }
-        return Integer.parseInt(m);
+        return Integer.parseInt(s);
     }
 
     public static void main(String[] args) {
