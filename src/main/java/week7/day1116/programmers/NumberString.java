@@ -4,26 +4,20 @@ import java.util.Arrays;
 
 public class NumberString {
     public int solution(String m) {
-        m = m.replace("zero","0");
-        m = m.replace("one","1");
-        m = m.replace("two","2");
-        m = m.replace("three","3");
-        m = m.replace("four","4");
-        m = m.replace("five","5");
-        m = m.replace("six","6");
-        m = m.replace("seven","7");
-        m = m.replace("eight","8");
-        m = m.replace("nine","9");
-        System.out.println(m);
+        String[] numArr = {"zero", "one", "two", "three", "four", "five", "six", "seven","eight", "nine"};
+        for (int i = 0; i < m.length(); i++) {
+            m = m.replace(numArr[i],String.valueOf(i));
+        }
         return Integer.parseInt(m);
     }
 
     public static void main(String[] args) {
-        String m = "one4seveneight";
-        System.out.println(m.replace("one","바귀어라"));
-
-        System.out.println(m);
-        NumberString2 ns = new NumberString2();
-        ns.solution(m);
+        NumberString3 ns = new NumberString3();
+        String text1 = "one4seveneight";
+        String text2 = "23four5six7";
+        String text3 = "1zerotwozero3";
+        ns.solution(text1);
+        ns.solution(text2);
+        ns.solution(text3);
     }
 }
