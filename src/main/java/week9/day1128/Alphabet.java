@@ -14,12 +14,12 @@ public class Alphabet {
             }
         }
         System.out.println(n);
-        alphabet('A');
+        alphabet('A',"AA");
     }
 
-    public static void alphabet(char c) {
+    public static void alphabet(char c, String prefix) {
         if (c>'Z')return;
-        System.out.println(c);
-        alphabet((char)(c+1));
+        System.out.println(prefix+c);
+        alphabet((char)(c+1), prefix);
     }
 }
